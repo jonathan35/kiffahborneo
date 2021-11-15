@@ -37,7 +37,7 @@ $msg['Suspend']='Are you sure you want to suspend?';	$db['Suspend']=array('statu
 $unique_validation=array();
 
 
-$fields = array('id', 'location', 'position', 'status');
+$fields = array('id', 'location', 'position', 'status', 'seo_keyword', 'seo_description');
 $value = array();
 $type = array();
 $width = array();//width for input field
@@ -45,7 +45,7 @@ $placeholder = array();
 
 #####Design part#######
 $back = false;// "Back to listing" button, true = enable, false = disable
-$fic_1 = array(0=>array('2', '2'));//fic = fiels in column, number of fields by column $fic_1 normally for add or edit template
+$fic_1 = array(0=>array('4', '2'));//fic = fiels in column, number of fields by column $fic_1 normally for add or edit template
 $fic_2 = array('5', '1');//fic = fiels in column, number of fields by column $fic_2 normally for list template
 
 foreach((array)$fields as $field){
@@ -67,6 +67,11 @@ $attributes['location'] = array('required' => 'required');
 $attributes['position'] = array('placeholder' => 'A number for sorting');
 $placeholder['title'] = 'Title for profile page';
 //$placeholder['post_content'] = 'Description for profile page';
+
+
+$type['seo_keyword'] = 'textarea';
+$type['seo_description'] = 'textarea';
+
 
 $type['id'] = 'hidden';
 $type['password'] = 'password';
@@ -94,9 +99,11 @@ foreach((array)$fields as $field){
 echo '</div>';
 */
 $cols = $items =array();
-$cols = array('Location' => '8', 'Position' => '4');//Column title and width
+$cols = array('Location' => 4, 'SEO Keyword' => 3, 'SEO Description' => 3, 'Position' => 2);//Column title and width
 $items['Location'] = array('location');
 $items['Photo'] = array('photo');
+$items['SEO Keyword'] = array('seo_keyword');
+$items['SEO Description'] = array('seo_description');
 $items['Position'] = array('position');
 //$items['Programme'] = array('programme','experience','experience_detail');
 //$items['Condition'] = array('illnesses','bankrupt','court');

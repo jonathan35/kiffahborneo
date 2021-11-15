@@ -91,11 +91,16 @@ include_once 'head.php';
                                         <div class="col-12 text-black pb-4 pb-md-5" style="font-size:30px; line-height:1.2;">
                                             <?php echo $tour['name']?>
                                         </div>
-                                        <?php if(!empty($locations[$tour['location']])){?>
+                                        <?php 
+                                        foreach($locations as $location){
+                                            $ls[$location['id']] = $location['location'];
+                                        }
+                                        
+                                        if(!empty($ls[$tour['location']])){?>
                                         <div class="col-12 pt-2">
                                             <i class="fa fa-map-marker ico-cus2"></i>
                                             <b>Location: </b>
-                                            <?php echo $locations[$tour['location']]?>
+                                            <?php echo $ls[$tour['location']]?>
                                         </div>
                                         <?php }?>
 

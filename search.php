@@ -1,6 +1,6 @@
 
 
-<form action="<?php echo ROOT?>tours" method="post" class="form-group pt-0" id="search_from" style="margin-top:10px;">
+<form action="<?php echo ROOT?>tours" method="post" class="form-group pt-0" id="search_from" style="margin-top:20px;">
     <div class="ic-search" style="color:#555;">
         <i class="fa fa-search"></i>
     </div>
@@ -39,6 +39,8 @@ $("#keyword").on('keyup dblclick', function(){
 
     if( keyw != ''){
         $('#auto_list').fadeIn();
+    }else{
+        $('#auto_list').fadeOut();
     }
 
     $( ".auto_suggest_item" ).each(function( index ) {
@@ -70,33 +72,46 @@ $(function() {
     });
 })
 
-function clearkeyword(){
+$("#clearkeyword").click(function(e) {
     $('#clearkeyword').fadeOut();
     $('#keyword').val('');
     $('#keyword').focus();
-}
+})
 
 </script>
 
 <style>
+#search_from {
+    padding-top:20px;
+}
 #auto_list {
     /**/display:none;
     position:absolute;
-    top:62px;	
+    top:62px;
     z-index:4;
-    background: rgba(255,255,255,.9);;
-    border:1px solid #CCC;
-    box-shadow:2px 2px 4px rgba(0,0,0,.4);
+    background: #444;
+    border:1px solid #444;
+    box-shadow:2px 2px 4px rgb(0,0,0);
     overflow-y:scroll;
     overflow-x:hidden;
     max-height:80vh;
+    transition: background .5s;
+}
+@media (max-width: 575px) {
+    #search_from {
+        top:-10px;
+    }
+    #auto_list {
+        top:50px;
+        width:91%;
+    }
 }
 #auto_list > div {
     padding:4px 10px;
     cursor:pointer;
 }
 #auto_list > div:hover {
-    background: #EFEFEF;
+    background: #222;
 }
 .h-search::placeholder {
     color:#999;

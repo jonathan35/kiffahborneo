@@ -10,8 +10,20 @@ if(!empty($_GET['cat'])){//This is category
     $selected_category = sql_read('select * from category where category like ?  and status=1 limit 1', 's', '%'.$cat_name.'%');
 }
 
+$first_location = '';
+if($_GET['c']){
+    $loc_name = $str_convert->to_query($_GET['c']);
+    $selected_location = sql_read("select * from location where location like ? ", 's', '%'.$loc_name.'%');
+    $selected_qry = " and location not like '%".$loc_name."%' ";
+}
 
-$locations = sql_read('select * from location where status=1');
+$locations = sql_read("select * from location where status=1 $selected_qry order by position asc");
+
+if($selected_location[0]['id']){
+    $locations = array_merge($selected_location, $locations);
+}    
+
+
 
 foreach($locations as $location){
 ?>

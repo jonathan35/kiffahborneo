@@ -17,7 +17,7 @@ include_once 'head.php';
     </div>
 
     <div class="row">
-        <div class="col-12 text-center p-4 pt-5 pb-5">
+        <div class="col-12 text-center p-4 pt-5 pb-5" style="background:#e1e1e1; border-bottom:1px solid #e1e1e1; color:#e1e1e1 !important;">
         <?php 
         $home_content = sql_read('select * from content where id = 2 limit 1');        
         echo str_replace('../../',ROOT,$home_content['content']);

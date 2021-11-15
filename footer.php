@@ -16,6 +16,8 @@
         <div class="row d-flex pt-4 pb-5 text-left" >
 
             <div class="col-12 col-md">
+
+                <img src="<?php echo ROOT?>images/kiffah_logo_do2c.png" class="img-fluid pl-1" style="width:100px;">
                 <div class="footer-title pt-5 mt-3 pt-md-2">Tours</div>
                 <div class="row">                
                     <?php 
@@ -77,6 +79,7 @@
             <div class="col-12 col-md">
                 <div class="footer-title pt-5 mt-3 pt-md-2">Address</div>
                 <div class="pb-1">
+                    Co. No. 1135720-H, KPK/LN: 8214,<br>
                     Lot 386, Sub Lot 15,<br>
                     2nd Floor Wisma Polarwood<br>
                     Jalan Muhibbah Satok,<br>
@@ -97,7 +100,7 @@
         <br><br>
         <div class="row">
             <div class="col-12 text-muted">
-                2020. kiffahborneo.com.my All rights reserved. Powered by Quest Marketing.
+                <?php echo date('Y')?>. kiffahborneo.com.my All rights reserved. Powered by Quest Marketing.
             </div>
         </div>
 

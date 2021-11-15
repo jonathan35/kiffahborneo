@@ -40,7 +40,7 @@ $msg['Suspend']='Are you sure you want to suspend?';	$db['Suspend']=array('statu
 
 //$unique_validation=array('tier');
 
-$fields = array('id', 'location', 'category', 'tour_type', 'photo',  'name', 'price', 'duration', 'departure', 'physical_level', 'min_travellers', 'popular', 'position', 'status', 'brief_description', 'full_description');
+$fields = array('id', 'location', 'category', 'tour_type', 'photo',  'name', 'price', 'duration', 'departure', 'physical_level', 'min_travellers', 'popular', 'position', 'status', 'seo_keyword', 'seo_description', 'brief_description', 'full_description');
 
 $value = array();
 $type = array();
@@ -49,7 +49,7 @@ $placeholder = array();
 
 #####Design part#######
 $back = false;// "Back to listing" button, true = enable, false = disable
-$fic_1 = array(0=>array('7', '8'), 1 => array(1));//fic = fiels in column, number of fields by column $fic_1 normally for add or edit template
+$fic_1 = array(0=>array('7', '10'), 1 => array(1));//fic = fiels in column, number of fields by column $fic_1 normally for add or edit template
 $fic_2 = array('5', '1');//fic = fiels in column, number of fields by column $fic_2 normally for list template
 
 foreach((array)$fields as $field){
@@ -100,6 +100,10 @@ foreach((array)$results as $a){
 	}
 }
 
+$type['seo_keyword'] = 'textarea';
+$type['seo_description'] = 'textarea';
+
+
 
 $type['id'] = 'hidden';
 $type['photo'] = 'image';
@@ -146,9 +150,11 @@ echo '</div>';
 */
 $cols = $items =array();
 
-$cols = array('Location & Category' => '3', 'Tour' => '2', 'Name' => '6', 'Position' => '1');//Column title and width
+$cols = array('Location & Category' => 2, 'Tour' => 2, 'Name' => 3, 'SEO Keyword' => 2, 'SEO Description' => 2, 'Position' => 1);//Column title and width
 $items['Location & Category'] = array('location', 'category', 'tour_type');
 $items['Tour'] = array('photo');
+$items['SEO Keyword'] = array('seo_keyword');
+$items['SEO Description'] = array('seo_description');
 $items['Name'] = array('name', 'price', 'duration', 'departure');
 $items['Popular'] = array('popular');
 $items['Position'] = array('position');

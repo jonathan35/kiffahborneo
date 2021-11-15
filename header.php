@@ -1,12 +1,22 @@
 <div class="row" style="z-index:999">
     <div class="col-12 smallermobileheight" id="header" style="position:fixed; z-index:20; background: linear-gradient(80deg, rgba(52,52,52,1) 0%, rgba(24,24,24,1) 100%); width:100%; left:0; box-shadow:2px 2px 10px rgba(0,0,0,.2);">
         <div class="row">
-            <div class="col-12 col-md-3 offset-md-1">
+            <div class="col-12 col-md-6 offset-md-1">
                 <div class="row">
                     <div class="col-12 pl-0 pr-0 pt-1 d-flex justify-content-between">
                         <div class="col-9 col-md-12 pt-1 pb-1 pl-0 pr-0 text-left">
                             <a href="<?php echo A_ROOT?>home">
-                            <img src="<?php echo ROOT?>images/kiffah_logo_do2c.png" class="img-fluid pl-1" style="max-height:58px;"><!--<span style="font-size:40px;">LOGO</span>--></a>
+                            <div class="row">
+
+                                <div class="col-4 col-md-2"><img src="<?php echo ROOT?>images/kiffah_logo_do2c.png" class="img-fluid pl-1 d-inline" style="max-height:80px;"></div>
+                                <div class="col-8 col-md-10 p-0 pt-2 pt-md-3">
+                                    <span class="d-inline" style="color:#EF5A31; text-shadow:0 0 3px rgba(0, 0, 0,1)">
+                                        <span class="d-none d-md-inline" style="font-size:26px;">Kiffah Borneo Tours & Travel Sdn Bhd</span>
+                                        <span class="d-md-none" style="font-size:16px;">Kiffah Borneo Tours & Travel Sdn Bhd</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
                             
                             
                         </div>
@@ -23,7 +33,7 @@
                     </div>
                 </div> 
             </div>
-            <div class="col-12 col-md-3 offset-md-4 p-md-0">
+            <div class="col-12 col-md-3 offset-md-1 p-md-0">
                 <?php include 'search.php';?>
             </div>
         </div>
@@ -40,6 +50,7 @@
 
                         $menu_items = array();
                         $menu_width = $menu_str = '';
+                        $menu_items[] = 'Home';
                         foreach($locations as $l){
                             $menu_items[] = $l['location'];
                         }
@@ -62,6 +73,9 @@
 
                     <div class="navigator" style="grid-template-columns: <?php echo $menu_width?>;">
                <!--row d-flex flex-row justify-content-between-->
+                        <div class="col-12 col-md p-2 hd-menu <?php if(basename($_SERVER["SCRIPT_FILENAME"], '.php') == 'index') echo 'active-hd-menu';?>">
+                            <a href="<?php echo A_ROOT?>home" style="color:white;">Home</a>
+                        </div>
                         <?php 
                         $a = 1;
                         foreach($locations as $location){
